@@ -98,6 +98,7 @@ const Form = (props) => {
           <label>
             FirstName:
             <input
+              data-cy="first-name"
               type="text"
               name="firstName"
               placeholder="İsim giriniz"
@@ -106,13 +107,16 @@ const Form = (props) => {
             />
           </label>
           {userErrs.name !== "" && (
-            <div className="error">{userErrs.firstName} </div>
+            <div data-cy="errName" className="error">
+              {userErrs.firstName}
+            </div>
           )}
         </div>
         <div className="divv">
           <label>
             LastName:
             <input
+              data-cy="last-name"
               type="text"
               name="lastName"
               placeholder="SoyAd giriniz"
@@ -128,6 +132,7 @@ const Form = (props) => {
           <label>
             Email=
             <input
+              data-cy="email"
               type="email"
               name="email"
               placeholder="Email giriniz"
@@ -143,6 +148,7 @@ const Form = (props) => {
           <label>
             Password:
             <input
+              data-cy="passWord"
               type="text"
               name="password"
               placeholder="Şifre giriniz"
@@ -158,6 +164,7 @@ const Form = (props) => {
           <label>
             Terms:
             <input
+              data-cy="terms"
               type="checkbox"
               name="shippingFree"
               onChange={shippingfreechangeHandler}
@@ -168,12 +175,14 @@ const Form = (props) => {
             <div className="error">{userErrs.shippingFree} </div>
           )}
         </div>
-        <button type="submit" disabled={!valid}>
+        <button data-cy="button" type="submit" disabled={!valid}>
           Gönder
         </button>
       </form>
       {users.map((item) => (
-        <h1>{item.firstName}</h1>
+        <div>
+          <h1 data-cy="item">{item.firstName}</h1>
+        </div>
       ))}
     </div>
   );
